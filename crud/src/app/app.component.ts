@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsuarioService } from './service/usuario.service';
 
 @Component({
   selector: 'app-root',
@@ -6,49 +7,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  user?: any;
-  users?: any[];
+  usuario?: any;
+  usuarios?: any[];
 
-  createUser: any = {
-    nome: 'Cleber',
-    profissao: 'Dev',
-    dataNascimento: '1997-11-16T00:00:00.000Z',
-    email: 'cleber@gmail.com',
-    password: '123',
-    telefone: '619986097288',
-    salario: 20000,
-    endereco: {
-      rua: 'QI 3 Bloco A',
-      numero: 306,
-      estado: 'DF',
-      cidade: 'Brasília',
-      bairro: 'Guará II',
-      cep: '71020012',
-    },
-  };
+  constructor(private service: UsuarioService) {
+    this.service.getUsuarios().subscribe((res) => {
+      this.usuarios = res;
+    })
+  }
 
-  ngOnInit(): void {
-    this.users = JSON.parse(localStorage.getItem('USERS') || '[]');
-
+  ngOnInit(): void { 
     const usuarioAutenticado = JSON.parse(localStorage.getItem('USER') || 'null');
-
     if (usuarioAutenticado) {
-      this.user = usuarioAutenticado;
+      this.usuario = usuarioAutenticado;
     }
-
-    this.users?.push(this.createUser);
-    localStorage.setItem('USERS', JSON.stringify(this.users));
   }
 
   fazerLogin(user: any) {
-    const existeUsuario: any | undefined = this.users?.find(
-      (u) => u.email === user.email && u.password === user.password
+    const existeUsuario: any | undefined = this.usuarios?.find(
+      (u) => u.email === user.email && u.senha === user.senha
     );
 
     if (existeUsuario) {
       console.log('Usuário autenticado', existeUsuario);
-      this.user = existeUsuario;
-      localStorage.setItem('USER', JSON.stringify(this.user));
+      this.usuario = existeUsuario;
+      localStorage.setItem('USER', JSON.stringify(this.usuario));
     } else {
       console.log('Falha no login');
     }

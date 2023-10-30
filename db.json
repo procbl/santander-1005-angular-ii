@@ -1,0 +1,31 @@
+{
+  "usuarios": [
+    {
+      "id": 1,
+      "nome": "Cleber de Oliveira",
+      "email": "cleber@gmail.com",
+      "tipo": "ADMIN",
+      "senha": "123",
+      "cargo": "Tech Lead",
+      "salario": "20000"
+    },
+    {
+      "id": 2,
+      "nome": "João Pedro",
+      "email": "jp@gmail.com",
+      "tipo": "USUARIO",
+      "senha": "321",
+      "cargo": "Dev Junior",
+      "salario": "4000"
+    },
+    {
+      "nome": "Cleber de Oliveira POST",
+      "email": "cleber@gmail.com",
+      "tipo": "ADMIN",
+      "senha": "123",
+      "cargo": "Tech Lead",
+      "salario": "20000",
+      "id": 3
+    }
+  ]
+}

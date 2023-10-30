@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateUserComponent } from '../create-user/create-user.component';
+import { UsuarioService } from 'src/app/service/usuario.service';
 
 @Component({
   selector: 'app-users',
@@ -11,7 +12,9 @@ export class UsersComponent implements OnInit {
   @Input() public user?: any;
   users!: any[];
 
-  constructor(private dialog: MatDialog) {}
+  constructor(private dialog: MatDialog, private service: UsuarioService) {
+    console.log(this.service.getUsuarios())
+  }
   getUsers(): void {
     this.users = JSON.parse(localStorage.getItem('USERS') || '[]');
   }

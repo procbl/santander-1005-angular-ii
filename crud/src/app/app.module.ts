@@ -19,6 +19,7 @@ import { registerLocaleData } from '@angular/common';
 import { NgxMaskModule } from 'ngx-mask';
 import { cepMaskPipe } from './components/pipes/cep-mask.pipe';
 import { CreateUserComponent } from './components/create-user/create-user.component';
+import { HttpClientModule } from '@angular/common/http';
 
 registerLocaleData(ptBr)
 
@@ -45,6 +46,7 @@ registerLocaleData(ptBr)
     MatDialogModule,
     MatDividerModule,
     NgxMaskModule.forRoot(),
+    HttpClientModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'pt'}],
   bootstrap: [AppComponent]

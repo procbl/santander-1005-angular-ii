@@ -4,24 +4,19 @@
       <mat-card-title>Login</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-        <h1>NOVO B</h1>
-        
-      <form [formGroup]="formB">
+      <form [formGroup]="form">
         <mat-form-field appearance="outline">
           <mat-label>E-mail</mat-label>
           <input matInput formControlName="email" name="email" />
-          <mat-error> {{formB.controls['email'].errors?.['required'] ? 'Campo Obrigatório' : 'O seu email deve possuir mais de 2 caracteres'}} </mat-error>
+          <mat-error> {{form.controls['email'].errors?.['required'] ? 'Campo Obrigatório' : 'O seu email deve possuir mais de 2 caracteres'}} </mat-error>
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Senha</mat-label>
-          <input matInput formControlName="password" name="password" />
+          <input matInput formControlName="senha" name="senha" />
         </mat-form-field>
-        <button (click)="login()" mat-flat-button color="primary" [disabled]="formB.invalid" class="w-100 custom-button">
+        <button (click)="login()" mat-flat-button color="primary" [disabled]="form.invalid" class="w-100 custom-button">
           Entrar
-        </button>
-        <button (click)="verForm()" mat-flat-button color="primary"  class="w-100 custom-button">
-          ver form
-        </button>
+        </button> 
       </form>
     </mat-card-content>
   </mat-card>
