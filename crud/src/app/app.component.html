@@ -1,0 +1,6 @@
+<app-login *ngIf="!user" (loginEmitter)="fazerLogin($event)"></app-login>
+
+<ng-container *ngIf="user">
+  <app-header></app-header>
+  <app-users [user]="user"></app-users>
+</ng-container>
