@@ -8,32 +8,32 @@ import { UsuarioService } from 'src/app/service/usuario.service';
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.scss'],
 })
-export class UsersComponent implements OnInit {
-  @Input() public user?: any;
-  users!: any[];
+export class UsersComponent {
+  @Input() public usuario?: any;
+  usuarios!: any[];
 
   constructor(private dialog: MatDialog, private service: UsuarioService) {
-    console.log(this.service.getUsuarios())
-  }
-  getUsers(): void {
-    this.users = JSON.parse(localStorage.getItem('USERS') || '[]');
-  }
-
-  ngOnInit(): void {
-    this.getUsers();
+    console.log(this.service.getTeste());
+    this.service.getUsuarios().subscribe((res) => {
+      if (res) {
+        this.usuarios = res;
+      } else {
+        res.error;
+      }
+    });
+    this.service.setTeste();
   }
 
   openDialogCreateUser() {
     const dialogRef = this.dialog.open(CreateUserComponent, {
-      data: this.user, 
       disableClose: true,
-      width: '80%', 
+      width: '80%',
     });
 
-    dialogRef.afterClosed().subscribe((devolutivaModal:any) => {
-      if(devolutivaModal){
-        console.log('devolutiva MOdal', devolutivaModal)
+    dialogRef.afterClosed().subscribe((devolutivaModal: any) => {
+      if (devolutivaModal) {
+        console.log('devolutiva MOdal', devolutivaModal);
       }
-    })
+    });
   }
 }

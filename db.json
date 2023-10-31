@@ -26,6 +26,15 @@
       "cargo": "Tech Lead",
       "salario": "20000",
       "id": 3
+    },
+    {
+      "nome": "Cleber de Oliveira POST",
+      "email": "cleber@gmail.com",
+      "tipo": "ADMIN",
+      "senha": "123",
+      "cargo": "Tech Lead",
+      "salario": "20000",
+      "id": 4
     }
   ]
 }

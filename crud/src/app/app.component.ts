@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   constructor(private service: UsuarioService) {
     this.service.getUsuarios().subscribe((res) => {
       this.usuarios = res;
+      console.log(res)
     })
   }
 
@@ -21,6 +22,13 @@ export class AppComponent implements OnInit {
     if (usuarioAutenticado) {
       this.usuario = usuarioAutenticado;
     }
+  }
+
+  logout() {
+    this.usuario = null;
+    localStorage.setItem('USER','')
+    console.log(this.service.getTeste());
+    this.service.setTeste();
   }
 
   fazerLogin(user: any) {
