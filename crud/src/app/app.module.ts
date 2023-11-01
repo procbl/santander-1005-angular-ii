@@ -1,13 +1,5 @@
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatIconModule } from '@angular/material/icon';
-import { MatInputModule } from '@angular/material/input';
-import { MatToolbarModule } from '@angular/material/toolbar';
 import ptBr from '@angular/common/locales/pt';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -20,8 +12,8 @@ import { NgxMaskModule } from 'ngx-mask';
 import { cepMaskPipe } from './components/pipes/cep-mask.pipe';
 import { FormUserComponent } from './components/form-user/form-user.component';
 import { HttpClientModule } from '@angular/common/http';
-import {MatSelectModule} from '@angular/material/select';
 import { ExcluirUserComponent } from './components/excluir-user/excluir-user.component';
+import { AngularMaterialModule } from './utils/angular-material.module';
 
 registerLocaleData(ptBr)
 
@@ -40,17 +32,9 @@ registerLocaleData(ptBr)
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    MatCardModule,
-    MatButtonModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatDialogModule,
-    MatDividerModule,
-    MatSelectModule,
     NgxMaskModule.forRoot(),
     HttpClientModule,
+    AngularMaterialModule,
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'pt'}],
   bootstrap: [AppComponent]
