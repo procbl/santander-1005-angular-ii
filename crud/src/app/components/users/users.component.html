@@ -20,8 +20,8 @@
            
           </mat-card-content>
           <mat-card-actions>
-            <button mat-flat-button color="danger">Excluir</button>
-            <button mat-flat-button color="primary">Editar</button>
+            <button (click)="openDialogDeleteUser(usuario)" mat-flat-button color="danger">Excluir</button>
+            <button (click)="openDialogEditUser(usuario)" mat-flat-button color="primary">Editar</button>
           </mat-card-actions>
         </mat-card>
       </div>

@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Excluir Usuário</h1>
+<div mat-dialog-content>
+  <p>
+    Você tem certeza que deseja excluir o Usuário {{ usuarioAtual.nome }} do
+    cargo {{ usuarioAtual.cargo }} ?
+  </p>
+  <div mat-dialog-actions>
+    <button mat-flat-button (click)="onCancel()">Cancelar</button>
+    <button mat-flat-button (click)="excluirUsuario()" color="primary">
+      Excluir
+    </button>
+  </div>
+</div>

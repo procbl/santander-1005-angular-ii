@@ -18,8 +18,10 @@ import { UsersComponent } from './components/users/users.component';
 import { registerLocaleData } from '@angular/common';
 import { NgxMaskModule } from 'ngx-mask';
 import { cepMaskPipe } from './components/pipes/cep-mask.pipe';
-import { CreateUserComponent } from './components/create-user/create-user.component';
+import { FormUserComponent } from './components/form-user/form-user.component';
 import { HttpClientModule } from '@angular/common/http';
+import {MatSelectModule} from '@angular/material/select';
+import { ExcluirUserComponent } from './components/excluir-user/excluir-user.component';
 
 registerLocaleData(ptBr)
 
@@ -30,7 +32,8 @@ registerLocaleData(ptBr)
     HeaderComponent,
     UsersComponent,
     cepMaskPipe,
-    CreateUserComponent
+    FormUserComponent,
+    ExcluirUserComponent
   ],
   imports: [
     BrowserModule,
@@ -45,8 +48,9 @@ registerLocaleData(ptBr)
     MatIconModule,
     MatDialogModule,
     MatDividerModule,
+    MatSelectModule,
     NgxMaskModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'pt'}],
   bootstrap: [AppComponent]
