@@ -30,7 +30,7 @@
     {
       "id": 7,
       "nome": "Júnior",
-      "email": "testee@gmail.com",
+      "email": "junior@gmail.com",
       "senha": "153",
       "tipo": "FUNCIONARIO",
       "cargo": "Dev Júnior",
@@ -44,6 +44,17 @@
       "tipo": "FUNCIONARIO",
       "cargo": "Scrum Master",
       "salario": 8000
+    },
+    {
+      "id": 9,
+      "nome": "Luana",
+      "email": "lu@gmail.com",
+      "senha": "123",
+      "tipo": "FUNCIONARIO",
+      "cargo": "Product Owner",
+      "salario": 8000
     }
-  ]
+  ],
+
+  "times": ["TIME 1","TIME 2","TIME 3","TIME 4"]
 }
