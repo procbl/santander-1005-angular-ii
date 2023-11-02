@@ -56,5 +56,10 @@
     }
   ],
 
-  "times": ["TIME 1","TIME 2","TIME 3","TIME 4"]
+  "times": [
+    { "nome": "TIME 1", "id": 1 },
+    { "nome": "TIME 2", "id": 2 },
+    { "nome": "TIME 3", "id": 3 },
+    { "nome": "TIME 4", "id": 4 }
+  ]
 }
