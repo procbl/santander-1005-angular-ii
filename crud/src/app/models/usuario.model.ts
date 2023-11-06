@@ -6,4 +6,5 @@ export interface Usuario {
     tipo: string,
     salario: string | number,
     senha: string,
+    time: string
 }

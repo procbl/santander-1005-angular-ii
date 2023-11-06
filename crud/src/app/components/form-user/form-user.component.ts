@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Usuario } from 'src/app/models/usuario.model';
+import { TimeService } from 'src/app/service/time.service';
 
 @Component({
   selector: 'app-form-user',
@@ -16,6 +17,8 @@ import { Usuario } from 'src/app/models/usuario.model';
 export class FormUserComponent {
   public user?: any;
   public userForm!: FormGroup;
+
+  times!: any[]
 
   editarUsuario: boolean = false;
 
@@ -36,8 +39,12 @@ export class FormUserComponent {
   constructor(
     public dialogRef: MatDialogRef<FormUserComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private serviceTime: TimeService
   ) {
+    this.serviceTime.getTimes().subscribe((res) => {
+      this.times = res
+    })
     console.log(this.data);
     if (this.data) {
       this.editarUsuario = true;
@@ -61,6 +68,7 @@ export class FormUserComponent {
         tipo: [usuario?.tipo ?? '', [Validators.required]],
         cargo: [usuario?.cargo ?? '', [Validators.required]],
         salario: [usuario?.salario ?? '', [Validators.required]],
+        time: [usuario?.time ?? '', [Validators.required]],
       });
   }
 

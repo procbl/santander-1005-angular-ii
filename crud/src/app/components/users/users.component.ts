@@ -4,6 +4,7 @@ import { FormUserComponent } from '../form-user/form-user.component';
 import { UsuarioService } from 'src/app/service/usuario.service';
 import { Usuario } from 'src/app/models/usuario.model';
 import { ExcluirUserComponent } from '../excluir-user/excluir-user.component';
+import { TimeService } from 'src/app/service/time.service';
 
 @Component({
   selector: 'app-users',
@@ -13,17 +14,40 @@ import { ExcluirUserComponent } from '../excluir-user/excluir-user.component';
 export class UsersComponent {
   @Input() public usuario?: any;
   usuarios!: any[];
+  times!: any[];
 
-  constructor(private dialog: MatDialog, private service: UsuarioService) {
-    console.log(this.service.getTeste());
+  constructor(
+    private dialog: MatDialog,
+    private service: UsuarioService,
+    private serviceTime: TimeService
+  ) {
+    this.getUsuarios();
+  }
+
+  getUsuarios() {
     this.service.getUsuarios().subscribe((res) => {
       if (res) {
         this.usuarios = res;
+        this.montarTimes(this.usuarios);
       } else {
         res.error;
       }
     });
-    this.service.setTeste();
+  }
+
+  montarTimes(usuarios: Usuario[]) {
+    this.serviceTime.getTimes().subscribe((res) => {
+      this.times = res;
+      this.times.forEach((time: any) => {
+        time.integrantes = [];
+        this.usuarios.forEach((usuario) => {
+          if (usuario.time === time.nome) {
+            time.integrantes.push(usuario);
+          }
+        });
+      });
+      console.log(this.times)
+    });
   }
 
   openDialogDeleteUser(usuario: Usuario) {
@@ -35,13 +59,7 @@ export class UsersComponent {
     dialogRef.afterClosed().subscribe((devolutivaModal: Usuario) => {
       if (devolutivaModal) {
         this.service.excluirUsuario(usuario).subscribe((res) => {
-          this.service.getUsuarios().subscribe((res) => {
-            if (res) {
-              this.usuarios = res;
-            } else {
-              res.error;
-            }
-          });
+          this.getUsuarios();
         });
       } else {
         alert('não foi excluído');
@@ -59,13 +77,7 @@ export class UsersComponent {
       if (devolutivaModal) {
         this.service.criarUsuario(devolutivaModal).subscribe((res) => {
           console.log(res);
-          this.service.getUsuarios().subscribe((res) => {
-            if (res) {
-              this.usuarios = res;
-            } else {
-              res.error;
-            }
-          });
+          this.getUsuarios();
         });
       }
     });
@@ -82,13 +94,7 @@ export class UsersComponent {
       if (devolutivaModal) {
         this.service.editarUsuario(devolutivaModal).subscribe((res) => {
           console.log(res);
-          this.service.getUsuarios().subscribe((res) => {
-            if (res) {
-              this.usuarios = res;
-            } else {
-              res.error;
-            }
-          });
+          this.getUsuarios();
         });
       }
     });

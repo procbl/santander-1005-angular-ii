@@ -15,16 +15,16 @@ export class TimeService {
     return this.http.get('http://localhost:3000/times')
   }
 
-  criarTime(time: string): Observable<any>  {
+  criarTime(time: any): Observable<any>  {
     return this.http.post('http://localhost:3000/times', time)
   }
 
-  editarTime(time: string): Observable<any>  {
+  editarTime(time: any): Observable<any>  {
     return this.http.put(`http://localhost:3000/times/${time.id}`, time)
   }
 
-  excluirTime(time: string): Observable<any>  {
-    return this.http.delete(`http://localhost:3000/times/${time}`)
+  excluirTime(time: any): Observable<any>  {
+    return this.http.delete(`http://localhost:3000/times/${time.id}`)
   }
 
 }
