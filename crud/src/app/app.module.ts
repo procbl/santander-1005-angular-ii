@@ -14,6 +14,7 @@ import { FormUserComponent } from './components/form-user/form-user.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ExcluirUserComponent } from './components/excluir-user/excluir-user.component';
 import { AngularMaterialModule } from './utils/angular-material.module';
+import { AppRoutingModule } from './app-routing.module';
 
 registerLocaleData(ptBr)
 
@@ -35,6 +36,7 @@ registerLocaleData(ptBr)
     NgxMaskModule.forRoot(),
     HttpClientModule,
     AngularMaterialModule,
+    AppRoutingModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'pt'}],
   bootstrap: [AppComponent]
