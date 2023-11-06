@@ -14,7 +14,8 @@
           <mat-label>Senha</mat-label>
           <input matInput formControlName="senha" name="senha" />
         </mat-form-field>
-        <button (click)="login()" mat-flat-button color="primary" [disabled]="form.invalid" class="w-100 custom-button">
+        <!-- [routerLink]="'/header'" chamar no html uma rota -->
+        <button  (click)="login()" mat-flat-button color="primary" [disabled]="form.invalid" class="w-100 custom-button">
           Entrar
         </button> 
       </form>
