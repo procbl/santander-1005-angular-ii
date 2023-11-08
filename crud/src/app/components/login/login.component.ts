@@ -49,6 +49,7 @@ export class LoginComponent {
       console.log('Usuário autenticado', existeUsuario);
       this.usuario = existeUsuario;
       localStorage.setItem('USER', JSON.stringify(this.usuario));
+      localStorage.setItem('TIMETOKEN', JSON.stringify(new Date().getTime()));
       this.router.navigate(['/listar-times'])
 
     } else {

@@ -5,6 +5,7 @@ import { LoginComponent } from './components/login/login.component';
 import { HeaderComponent } from './components/header/header.component';
 import { UsersComponent } from './components/users/users.component';
 import { FormUserComponent } from './components/form-user/form-user.component';
+import { AuthGuard } from './guards/auth-guard';
 
 const routes: Routes = [
   {
@@ -14,10 +15,12 @@ const routes: Routes = [
   {
     path: 'listar-times',
     component: UsersComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'adicionar-usuario',
     component: FormUserComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: '**' , redirectTo:'login'

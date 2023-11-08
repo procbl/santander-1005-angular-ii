@@ -11,6 +11,7 @@ export class HeaderComponent {
   constructor(private router: Router){}
   logout() {
     localStorage.setItem('USER', '');
+    localStorage.setItem('TIMETOKEN', '');
     this.router.navigate(['/login'])
 
   }
