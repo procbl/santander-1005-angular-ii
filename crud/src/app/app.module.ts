@@ -12,9 +12,10 @@ import { NgxMaskModule } from 'ngx-mask';
 import { cepMaskPipe } from './components/pipes/cep-mask.pipe';
 import { FormUserComponent } from './components/form-user/form-user.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ExcluirUserComponent } from './components/excluir-user/excluir-user.component';
+import { ExcluirUserComponent } from './modais/excluir-user/excluir-user.component';
 import { AngularMaterialModule } from './utils/angular-material.module';
 import { AppRoutingModule } from './app-routing.module';
+import { EditUserComponent } from './modais/edit-user/edit-user.component';
 
 registerLocaleData(ptBr)
 
@@ -26,7 +27,8 @@ registerLocaleData(ptBr)
     UsersComponent,
     cepMaskPipe,
     FormUserComponent,
-    ExcluirUserComponent
+    ExcluirUserComponent,
+    EditUserComponent
   ],
   imports: [
     BrowserModule,

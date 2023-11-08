@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { HeaderComponent } from './components/header/header.component';
+import { UsersComponent } from './components/users/users.component';
+import { FormUserComponent } from './components/form-user/form-user.component';
 
 const routes: Routes = [
   {
@@ -10,8 +12,12 @@ const routes: Routes = [
     component: LoginComponent,
   },
   {
-    path: 'header',
-    component: HeaderComponent,
+    path: 'listar-times',
+    component: UsersComponent,
+  },
+  {
+    path: 'adicionar-usuario',
+    component: FormUserComponent,
   },
   {
     path: '**' , redirectTo:'login'

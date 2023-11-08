@@ -1,4 +1,7 @@
-<app-header *ngIf="!editarUsuario"></app-header>
+<app-form-user [usuarioAtual]="data" [editarUsuario]="true" (fecharModal)="fecharModal($event)"></app-form-user>
+
+
+<!-- 
 <div class="container">
   <h1 mat-dialog-title>
     {{ editarUsuario ? "Editar usuário" : "Adicionar usuário" }}
@@ -89,3 +92,4 @@
     </button>
   </div>
 </div>
+ -->

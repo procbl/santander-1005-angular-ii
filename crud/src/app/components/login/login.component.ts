@@ -49,7 +49,7 @@ export class LoginComponent {
       console.log('Usuário autenticado', existeUsuario);
       this.usuario = existeUsuario;
       localStorage.setItem('USER', JSON.stringify(this.usuario));
-      this.router.navigate(['/header'])
+      this.router.navigate(['/listar-times'])
 
     } else {
       console.log('Falha no login');

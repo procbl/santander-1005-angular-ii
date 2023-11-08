@@ -3,8 +3,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { FormUserComponent } from '../form-user/form-user.component';
 import { UsuarioService } from 'src/app/service/usuario.service';
 import { Usuario } from 'src/app/models/usuario.model';
-import { ExcluirUserComponent } from '../excluir-user/excluir-user.component';
+import { ExcluirUserComponent } from '../../modais/excluir-user/excluir-user.component';
 import { TimeService } from 'src/app/service/time.service';
+import { EditUserComponent } from 'src/app/modais/edit-user/edit-user.component';
 
 @Component({
   selector: 'app-users',
@@ -21,6 +22,9 @@ export class UsersComponent {
     private service: UsuarioService,
     private serviceTime: TimeService
   ) {
+    this.serviceTime.getTimes().subscribe((res) => {
+      this.times = res;
+    });
     this.getUsuarios();
   }
 
@@ -28,25 +32,22 @@ export class UsersComponent {
     this.service.getUsuarios().subscribe((res) => {
       if (res) {
         this.usuarios = res;
-        this.montarTimes(this.usuarios);
+        this.montarTimes();
       } else {
         res.error;
       }
     });
   }
 
-  montarTimes(usuarios: Usuario[]) {
-    this.serviceTime.getTimes().subscribe((res) => {
-      this.times = res;
-      this.times.forEach((time: any) => {
-        time.integrantes = [];
-        this.usuarios.forEach((usuario) => {
-          if (usuario.time === time.nome) {
-            time.integrantes.push(usuario);
-          }
-        });
+  montarTimes() {
+    this.times.forEach((time: any) => {
+      time.integrantes = [];
+      this.usuarios.forEach((usuario) => {
+        if (usuario.time === time.nome) {
+          time.integrantes.push(usuario);
+        }
       });
-      console.log(this.times)
+      console.log(this.times);
     });
   }
 
@@ -67,24 +68,8 @@ export class UsersComponent {
     });
   }
 
-  openDialogCreateUser() {
-    const dialogRef = this.dialog.open(FormUserComponent, {
-      disableClose: true,
-      width: '80%',
-    });
-
-    dialogRef.afterClosed().subscribe((devolutivaModal: Usuario) => {
-      if (devolutivaModal) {
-        this.service.criarUsuario(devolutivaModal).subscribe((res) => {
-          console.log(res);
-          this.getUsuarios();
-        });
-      }
-    });
-  }
-
   openDialogEditUser(usuario: Usuario) {
-    const dialogRef = this.dialog.open(FormUserComponent, {
+    const dialogRef = this.dialog.open(EditUserComponent, {
       disableClose: true,
       width: '80%',
       data: usuario,
@@ -92,10 +77,7 @@ export class UsersComponent {
 
     dialogRef.afterClosed().subscribe((devolutivaModal: Usuario) => {
       if (devolutivaModal) {
-        this.service.editarUsuario(devolutivaModal).subscribe((res) => {
-          console.log(res);
-          this.getUsuarios();
-        });
+        this.getUsuarios();
       }
     });
   }

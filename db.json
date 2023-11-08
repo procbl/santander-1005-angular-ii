@@ -7,7 +7,7 @@
       "senha": "123",
       "tipo": "ADMIN",
       "cargo": "Tech Lead",
-      "salario": "20000",
+      "salario": 21000,
       "time": "TIME 1"
     },
     {
@@ -18,7 +18,7 @@
       "tipo": "FUNCIONARIO",
       "cargo": "Dev Júnior",
       "salario": "4000",
-      "time": "TIME 1"
+      "time": "TIME 2"
     },
     {
       "id": 4,
@@ -28,16 +28,6 @@
       "tipo": "FUNCIONARIO",
       "cargo": "Dev Pleno",
       "salario": 7000,
-      "time": "TIME 2"
-    },
-    {
-      "id": 7,
-      "nome": "Júnior",
-      "email": "junior@gmail.com",
-      "senha": "153",
-      "tipo": "FUNCIONARIO",
-      "cargo": "Dev Júnior",
-      "salario": 5000,
       "time": "TIME 1"
     },
     {
@@ -48,7 +38,27 @@
       "tipo": "FUNCIONARIO",
       "cargo": "Scrum Master",
       "salario": 8000,
+      "time": "TIME 4"
+    },
+    {
+      "id": 9,
+      "nome": "teste time 2",
+      "email": "teste@22.com",
+      "senha": "123456",
+      "tipo": "FUNCIONARIO",
+      "cargo": "Dev Senior",
+      "salario": 15000,
       "time": "TIME 2"
+    },
+    {
+      "id": 10,
+      "nome": "teste turma 19:27",
+      "email": "a@aaaa.com",
+      "senha": "123456",
+      "tipo": "FUNCIONARIO",
+      "cargo": "Dev Pleno",
+      "salario": 15155,
+      "time": "TIME 4"
     }
   ],
   "times": [

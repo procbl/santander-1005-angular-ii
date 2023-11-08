@@ -1,5 +1,6 @@
 import { outputAst } from '@angular/compiler';
 import { Component, EventEmitter, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,10 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  @Output() logoutEmitter = new EventEmitter<any>();
-
+  constructor(private router: Router){}
   logout() {
-    this.logoutEmitter.emit(true)
+    localStorage.setItem('USER', '');
+    this.router.navigate(['/login'])
+
   }
 }
