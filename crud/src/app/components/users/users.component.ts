@@ -14,6 +14,7 @@ import { EditUserComponent } from 'src/app/modais/edit-user/edit-user.component'
 })
 export class UsersComponent {
   @Input() public usuario?: any;
+  usuarioLogado!:any
   usuarios!: any[];
   times!: any[];
 
@@ -26,6 +27,8 @@ export class UsersComponent {
       this.times = res;
     });
     this.getUsuarios();
+    this.usuarioLogado = JSON.parse(localStorage.getItem('USER') || 'null');
+    console.log(this.usuarioLogado)
   }
 
   getUsuarios() {
