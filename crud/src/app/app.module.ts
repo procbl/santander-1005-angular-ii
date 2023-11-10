@@ -16,13 +16,13 @@ import { ExcluirUserComponent } from './modais/excluir-user/excluir-user.compone
 import { AngularMaterialModule } from './utils/angular-material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { EditUserComponent } from './modais/edit-user/edit-user.component';
+import { LoginModule } from './components/login/login.module';
 
 registerLocaleData(ptBr)
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     HeaderComponent,
     UsersComponent,
     cepMaskPipe,
@@ -38,7 +38,8 @@ registerLocaleData(ptBr)
     NgxMaskModule.forRoot(),
     HttpClientModule,
     AngularMaterialModule,
-    AppRoutingModule
+    AppRoutingModule,
+    LoginModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'pt'}],
   bootstrap: [AppComponent]

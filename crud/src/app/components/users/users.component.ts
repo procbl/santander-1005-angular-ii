@@ -28,7 +28,6 @@ export class UsersComponent {
     });
     this.getUsuarios();
     this.usuarioLogado = JSON.parse(localStorage.getItem('USER') || 'null');
-    console.log(this.usuarioLogado)
   }
 
   getUsuarios() {

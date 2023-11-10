@@ -24,18 +24,13 @@ export class AuthGuard {
     | boolean
     | UrlTree {
     return new Promise((resolve, reject) => {
-      console.log(route);
-      console.log(state);
       const usuarioAutenticado = JSON.parse(
         localStorage.getItem('USER') || 'null'
       );
       const tempoToken = JSON.parse(
         localStorage.getItem('TIMETOKEN') || 'null'
       );
-      console.log(tempoToken);
-      console.log(new Date().getTime());
       const tokenExpirado = new Date().getTime() - tempoToken <= 200000;
-      console.log(tokenExpirado);
       if (usuarioAutenticado?.tipo === 'ADMIN' && tokenExpirado) {
         resolve(true);
       } else if (

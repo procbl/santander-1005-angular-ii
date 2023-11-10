@@ -13,6 +13,5 @@ export class HeaderComponent {
     localStorage.setItem('USER', '');
     localStorage.setItem('TIMETOKEN', '');
     this.router.navigate(['/login'])
-
   }
 }
