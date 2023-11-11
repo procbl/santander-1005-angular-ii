@@ -17,19 +17,12 @@ import { AngularMaterialModule } from './utils/angular-material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { EditUserComponent } from './modais/edit-user/edit-user.component';
 import { LoginModule } from './components/login/login.module';
+import { FormUserModule } from './components/form-user/form-user.module';
 
-registerLocaleData(ptBr)
+registerLocaleData(ptBr);
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    UsersComponent,
-    cepMaskPipe,
-    FormUserComponent,
-    ExcluirUserComponent,
-    EditUserComponent
-  ],
+  declarations: [AppComponent, cepMaskPipe],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -39,9 +32,8 @@ registerLocaleData(ptBr)
     HttpClientModule,
     AngularMaterialModule,
     AppRoutingModule,
-    LoginModule
   ],
-  providers: [{ provide: LOCALE_ID, useValue: 'pt'}],
-  bootstrap: [AppComponent]
+  providers: [{ provide: LOCALE_ID, useValue: 'pt' }],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

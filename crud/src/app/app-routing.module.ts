@@ -1,10 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
-import { LoginComponent } from './components/login/login.component';
-import { HeaderComponent } from './components/header/header.component';
-import { UsersComponent } from './components/users/users.component';
-import { FormUserComponent } from './components/form-user/form-user.component';
 import { AuthGuard } from './guards/auth-guard';
 
 const routes: Routes = [
@@ -15,12 +10,14 @@ const routes: Routes = [
   },
   {
     path: 'listar-times',
-    component: UsersComponent,
+    loadChildren: () =>
+      import('./components/users/users.module').then((m) => m.UsersModule),
     canActivate: [AuthGuard],
   },
   {
     path: 'adicionar-usuario',
-    component: FormUserComponent,
+    loadChildren: () =>
+      import('./components/form-user/form-user.module').then((m) => m.FormUserModule),
     canActivate: [AuthGuard],
   },
   {
