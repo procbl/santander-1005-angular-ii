@@ -23,5 +23,6 @@ import { ExcluirUserComponent } from 'src/app/modais/excluir-user/excluir-user.c
     HeaderModule,
     FormUserModule,
   ],
+  exports:[UsersComponent]
 })
 export class UsersModule {}

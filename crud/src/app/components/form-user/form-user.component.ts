@@ -82,9 +82,8 @@ export class FormUserComponent {
     if(this.editarUsuario){
       this.fecharModal.emit(false)
     } else {
-      this.router.navigate(['/listar-times']);
+      this.router.navigate(['/adm/times']);
     }
-    //this.dialogRef.close();
   }
 
   public onSubmit(): void {
@@ -94,11 +93,8 @@ export class FormUserComponent {
       });
     } else {
       console.log(this.userForm.value);
-      //this.dialogRef.close(this.userForm.value);
-      //this.user = this.userForm.value;
-      //this.dialogRef.close(this.user);
       this.service.criarUsuario(this.userForm.value).subscribe((res) => {
-        this.router.navigate(['/listar-times']);
+        this.router.navigate(['/adm/times']);
       });
     }
   }

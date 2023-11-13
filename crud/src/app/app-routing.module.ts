@@ -9,15 +9,21 @@ const routes: Routes = [
       import('./components/login/login.module').then((m) => m.LoginModule),
   },
   {
-    path: 'listar-times',
+    path: 'usuarios',
     loadChildren: () =>
       import('./components/users/users.module').then((m) => m.UsersModule),
     canActivate: [AuthGuard],
   },
   {
-    path: 'adicionar-usuario',
+    path: 'adm',
     loadChildren: () =>
-      import('./components/form-user/form-user.module').then((m) => m.FormUserModule),
+      import('./views/visao-adm/visao-adm.module').then((m) => m.VisaoAdmModule),
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'func',
+    loadChildren: () =>
+      import('./views/visao-funcionario/visao-funcionario.module').then((m) => m.VisaoFuncionarioModule),
     canActivate: [AuthGuard],
   },
   {

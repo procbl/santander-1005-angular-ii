@@ -13,7 +13,7 @@ import { EditUserComponent } from 'src/app/modais/edit-user/edit-user.component'
   styleUrls: ['./users.component.scss'],
 })
 export class UsersComponent {
-  @Input() public usuario?: any;
+  @Input() public tipoUsuario?: any;
   usuarioLogado!:any
   usuarios!: any[];
   times!: any[];

@@ -21,16 +21,6 @@
       "time": "TIME 2"
     },
     {
-      "id": 4,
-      "nome": "João",
-      "email": "joao@gmail.com",
-      "senha": "123",
-      "tipo": "FUNCIONARIO",
-      "cargo": "Dev Pleno",
-      "salario": 7000,
-      "time": "TIME 1"
-    },
-    {
       "id": 8,
       "nome": "Claudio",
       "email": "claudio@gmail.com",
@@ -58,6 +48,26 @@
       "tipo": "FUNCIONARIO",
       "cargo": "Dev Pleno",
       "salario": 15155,
+      "time": "TIME 4"
+    },
+    {
+      "id": 11,
+      "nome": "teste 2",
+      "email": "tttttt@tttt.com",
+      "senha": "123",
+      "tipo": "ADMIN",
+      "cargo": "Dev Júnior",
+      "salario": 4,
+      "time": "TIME 4"
+    },
+    {
+      "id": 12,
+      "nome": "teste2222222222",
+      "email": "123@cccc.com",
+      "senha": "5555",
+      "tipo": "FUNCIONARIO",
+      "cargo": "Dev Júnior",
+      "salario": 11,
       "time": "TIME 4"
     }
   ],

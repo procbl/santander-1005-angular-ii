@@ -1,5 +1,10 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { UsuarioService } from 'src/app/service/usuario.service';
 import { Router } from '@angular/router';
 
@@ -14,16 +19,22 @@ export class LoginComponent {
   usuario!: any;
   usuarios!: any[];
 
-  constructor(private fb: FormBuilder, private service: UsuarioService, private router: Router) {
+  constructor(
+    private fb: FormBuilder,
+    private service: UsuarioService,
+    private router: Router
+  ) {
     this.buildForm();
     this.service.getUsuarios().subscribe((res) => {
       this.usuarios = res;
-      console.log(res)
-    })
+      console.log(res);
+    });
   }
 
-  ngOnInit(): void { 
-    const usuarioAutenticado = JSON.parse(localStorage.getItem('USER') || 'null');
+  ngOnInit(): void {
+    const usuarioAutenticado = JSON.parse(
+      localStorage.getItem('USER') || 'null'
+    );
     if (usuarioAutenticado) {
       this.usuario = usuarioAutenticado;
     }
@@ -33,12 +44,12 @@ export class LoginComponent {
     this.form = this.fb.group({
       email: [null, [Validators.required, Validators.minLength(3)]],
       senha: [null, [Validators.required]],
-    })
+    });
   }
 
-  login(): void { 
-    this.user = { email: this.form.value.email, senha: this.form.value.senha};
-    this.fazerLogin(this.user)
+  login(): void {
+    this.user = { email: this.form.value.email, senha: this.form.value.senha };
+    this.fazerLogin(this.user);
   }
 
   fazerLogin(user: any) {
@@ -50,11 +61,11 @@ export class LoginComponent {
       this.usuario = existeUsuario;
       localStorage.setItem('USER', JSON.stringify(this.usuario));
       localStorage.setItem('TIMETOKEN', JSON.stringify(new Date().getTime()));
-      this.router.navigate(['/listar-times'])
-
+      this.usuario.tipo === 'ADMIN'
+        ? this.router.navigate(['/adm/times'])
+        : this.router.navigate(['/func/times']);
     } else {
       console.log('Falha no login');
     }
   }
-   
 }

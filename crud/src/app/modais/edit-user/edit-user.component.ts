@@ -81,7 +81,7 @@ export class EditUserComponent {
   }
 
   public onCancel(): void {
-    //this.router.navigate(['/listar-times'])
+    //this.router.navigate(['/usuarios/times'])
     this.dialogRef.close();
   }
 
@@ -95,7 +95,7 @@ export class EditUserComponent {
     //this.user = this.userForm.value;
     //this.dialogRef.close(this.user);
     /* this.service.criarUsuario(this.userForm.value).subscribe((res) => {
-      this.router.navigate(['/listar-times'])
+      this.router.navigate(['/usuarios/times'])
     }); */
   }
 }
