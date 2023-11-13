@@ -9,12 +9,6 @@ const routes: Routes = [
       import('./components/login/login.module').then((m) => m.LoginModule),
   },
   {
-    path: 'usuarios',
-    loadChildren: () =>
-      import('./components/users/users.module').then((m) => m.UsersModule),
-    canActivate: [AuthGuard],
-  },
-  {
     path: 'adm',
     loadChildren: () =>
       import('./views/visao-adm/visao-adm.module').then((m) => m.VisaoAdmModule),
